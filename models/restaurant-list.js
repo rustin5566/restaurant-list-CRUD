@@ -29,7 +29,7 @@ const restauarantListSchema = new Schema({
     type: String,
     required: true
   },
-  ratig: {
+  rating: {
     type: Number,
     required: true
   },
