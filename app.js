@@ -33,6 +33,13 @@ app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
 app.set('view engine', 'hbs')
 
 // routig
+
+
+// 點新增餐廳button routing頁面
+app.get('/restaurants/new', (req, res) => {
+  return res.render('new')
+})
+
 // 瀏覽首頁全部餐廳
 app.get('/', (req, res) => {
   RestaurantList.find()
@@ -40,10 +47,8 @@ app.get('/', (req, res) => {
     .then(restaurantlists => res.render('index', { restaurantlists }))
     .catch(error => console.error(error))
 })
-// 點新增餐廳button routing頁面
-app.get('/restaurants/new', (req, res) => {
-  res.render('new')
-})
+
+
 
 // 瀏覽特定餐廳
 app.get('/restaurants/:id', (req, res) => {
