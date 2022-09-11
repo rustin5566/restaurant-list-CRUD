@@ -5,7 +5,7 @@ const restauarantListSchema = new Schema({
     type: String,
     required: true,
   },
-  nameEn: {
+  name_en: {
     type: String,
     required: true,
   },
