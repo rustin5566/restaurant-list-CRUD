@@ -31,7 +31,9 @@ step 5.
 ·s¼WÀ\ÆU
 ½s¿èÀ\ÆU
 §R°£À\ÆU
-##¶}µo¤u¨ã
+
+
+## ¶}µo¤u¨ã
 Node.js 14.16.0
 
 Express 4.17.1
@@ -46,10 +48,3 @@ MongoDB
 
 mongoose 6.0.5
 
-§ó·s¬ö¿ı
-## Show your support
-
-Give a â­ï? if this project helped you!
-
-***
-_This README was generated with ?¤ï? by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
