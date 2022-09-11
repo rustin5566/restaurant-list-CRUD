@@ -9,7 +9,7 @@
 ## 安裝步驟 
   step 1.
       點選 Code / Clone / HTTPS 專案至本機電腦，或是打開 terminal 進行專案儲存，輸入：git clone https://github.com/rustin5566/restaurant-list-CRUD.git
-  step 2.
+    step 2.
   設定環境變數連線 MongoDB，輸入：MONGODB_URI=mongodb+srv://<Your MongoDB Account>:<Your MongoDB Password>@cluster0.xxxx.xxxx.net/<Your MongoDB Table><?   retryWrites=true&w=majority
   step 3.
   進入專案資料夾，在終端機輸入：cd Restaurant_List_CURD
