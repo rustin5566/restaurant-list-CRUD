@@ -3,7 +3,7 @@ const Schema = mongoose.Schema
 const dinerSchema = new Schema ({
   name: {
     type: String,
-    required: true
+    required: false
   },
   email: {
     type: String,
@@ -19,4 +19,4 @@ const dinerSchema = new Schema ({
   }
 })
 
-module.exports = mongoose.model('dinerUser', dinerUserSchema)
+module.exports = mongoose.model('dinerUser', dinerSchema)
