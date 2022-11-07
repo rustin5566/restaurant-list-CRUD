@@ -3,8 +3,6 @@ const router = express.Router()
 const RestaurantList = require('../../models/restaurant-list')
 
 
-
-
 // 點新增餐廳button routing頁面
 router.get('/new', (req, res) => {
   return res.render('new')
@@ -13,8 +11,9 @@ router.get('/new', (req, res) => {
 
 // 瀏覽特定餐廳
 router.get('/:id', (req, res) => {
-  const id = req.params.id
-  return RestaurantList.findById(id)
+  const userId = req.user._id
+  const _id = req.params.id
+  return RestaurantList.findOne(_id, userId)
     .lean()
     .then(restaurantlists => res.render('detail', { restaurantlists }))
     .catch(error => console.log(error))
@@ -23,15 +22,16 @@ router.get('/:id', (req, res) => {
 
 // 修改資料頁面
 router.get('/:id/edit', (req, res) => {
-  const id = req.params.id
-  return RestaurantList.findById(id)
+  const userId = req.user._id
+  const _id = req.params.id
+  return RestaurantList.findOne(_id, userId)
     .lean()
     .then(restaurantlists => res.render('edit', { restaurantlists }))
     .catch(error => console.log(error))
 })
 
 // 接住修改後的資料後重新渲染
-router.put('/:restaurantId', (req, res) => {
+router.put('/:id', (req, res) => {
   const { restaurantId } = req.params
   RestaurantList.findByIdAndUpdate(restaurantId, req.body)
     .then(() => res.redirect(`/restaurants/${restaurantId}`))
@@ -48,7 +48,9 @@ router.delete('/:restaurantId', (req, res) => {
 
 // 新增資料
 router.post('/', (req, res) => {
-  return RestaurantList.create(req.body)// 存入資料庫
+const userId = req.user._id
+
+  return RestaurantList.create(req.body, userId)// 存入資料庫
     .then(() => res.redirect('/')) // 新增完成後導回首頁
     .catch(error => console.log(error))
 

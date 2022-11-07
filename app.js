@@ -23,6 +23,12 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 usePassport(app)
 
+app.use((req, res, next) => {
+  res.locals.isAuthenticated = req.isAuthenticated()
+  res.locals.user = req.user
+  next()
+})
+
 // setting routes
 app.use(routes)
 
@@ -32,10 +38,11 @@ app.set('view engine', 'hbs')
 
 // setting session
 app.use(session({
-  secret: 'WinterIsComing',
+  secret: 'ThisIsMySecret',
   resave: false,
   saveUninitialized: true
 }))
+
 
 app.listen(3000, () => {
   console.log('app is running on http://localhost:3000')

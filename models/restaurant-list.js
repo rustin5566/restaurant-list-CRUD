@@ -35,6 +35,12 @@ const restauarantListSchema = new Schema({
   },
   description: {
     type: String,
+  },
+  userId: {
+    type: Schema.Types.ObjectId,
+    ref:'dinerUser',
+    index: true,
+    required: true
   }
 
 })

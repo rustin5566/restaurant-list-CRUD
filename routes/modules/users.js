@@ -1,22 +1,34 @@
 const express = require('express')
+const passport = require('passport')
+const bcrypt = require('bcryptjs')
 const router = express.Router()
 const dinerUser = require('../../models/user')
-const passport = require('passport')
 
-router.get('/login', passport.authenticate('local', {
+
+
+router.get('/login', (req, res) => {
+  res.render('login')
+})
+
+router.post('/login', passport.authenticate('local', {
   successRedirect: '/',
   failureRedirect: '/users/login'
-})
+}))
 
 router.get('/register', (req, res) => {
   res.render('register')
 })
 
+router.get('/logout', (req, res) => {
+  req.logout()
+  res.redirect('/users/login')
+})
+
+
 router.post('/register', (req, res) => {
-  const {name, email, password, confirmPassword} = req.body
-  dinerUser.findOne({email}).then(user => {
-    if(user) {
-      console.log('email have benn used.')
+  const { name, email, password, confirmPassword } = req.body
+  dinerUser.findOne({ email }).then(user => {
+    if (user) {
       res.render('register', {
         name,
         email,
