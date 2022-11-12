@@ -59,16 +59,19 @@ router.post('/register', (req, res) => {
         password,
         confirmPassword
       })
-    } else {
-      return dinerUser.create({
-        name,
-        email,
-        password
-      })
+    } 
+      return bcrypt 
+        .genSalt(10)
+        .then(salt => bcrypt.hash(password, salt))
+        .then(hash => dinerUser.create({
+          name,
+          email,
+          password: hash
+        }))
         .then(() => res.redirect('/'))
         .catch(err => console.log(err))
     }
-  })
+  )
 
 })
 module.exports = router
