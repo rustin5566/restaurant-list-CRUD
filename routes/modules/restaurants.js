@@ -13,7 +13,7 @@ router.get('/new', (req, res) => {
 router.get('/:id', (req, res) => {
   const userId = req.user._id
   const _id = req.params.id
-  return RestaurantList.findOne(_id, userId)
+  return RestaurantList.findOne({ _id, userId })
     .lean()
     .then(restaurantlists => res.render('detail', { restaurantlists }))
     .catch(error => console.log(error))
@@ -24,7 +24,7 @@ router.get('/:id', (req, res) => {
 router.get('/:id/edit', (req, res) => {
   const userId = req.user._id
   const _id = req.params.id
-  return RestaurantList.findOne(_id, userId)
+  return RestaurantList.findOne({ _id, userId })
     .lean()
     .then(restaurantlists => res.render('edit', { restaurantlists }))
     .catch(error => console.log(error))
@@ -32,9 +32,11 @@ router.get('/:id/edit', (req, res) => {
 
 // 接住修改後的資料後重新渲染
 router.put('/:id', (req, res) => {
-  const { restaurantId } = req.params
-  RestaurantList.findByIdAndUpdate(restaurantId, req.body)
-    .then(() => res.redirect(`/restaurants/${restaurantId}`))
+  const userId = req.user._id
+  const _id = req.params.id
+
+  return RestaurantList.findByIdAndUpdate({ _id, userId}, req.body)
+    .then(() => res.redirect(`/restaurants/${_id}`))
     .catch(err => console.log(err))
 })
 
