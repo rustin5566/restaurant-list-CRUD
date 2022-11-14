@@ -34,18 +34,15 @@ step 5.
 
 
 ## 開發工具
-Node.js 14.16.0
-
-Express 4.17.1
-
-Express-Handlebars 5.3.3
-
-Bootstrap 4.3.1
-
-Font-awesome 5.8.1
-
-MongoDB
-
-mongoose 6.0.5
-
+Node.js 10.15.0
+bcryptjs": "^2.4.3"
+connect-flash": "^0.1.1"
+express": "^4.17.1"
+express-handlebars": "^5.3.5"
+express-session": "^1.17.3"
+method-override": "^3.0.0"
+mongoose": "^6.6.4"
+passport": "^0.6.0"
+passport-facebook": "^3.0.0"
+passport-local": "^1.0.0"
 # restaurant-final
