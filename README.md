@@ -1,6 +1,7 @@
 <h1 align="center">Welcome to restaurant-list-crud </h1>
 <p>
-  <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
+![image] (https://github.com/rustin5566/restaurant-list-CRUD/blob/main/IMG/LOGIN%20FUNCTION%20FINISH.PNG)
+
   <a href="#" target="_blank">
     <img alt="License: ISC" src="https://img.shields.io/badge/License-ISC-yellow.svg" />
   </a>
@@ -24,12 +25,21 @@ step 5.
 於網址列，輸入：localhost:3000
 
 ## 功能
+
+能夠進行註冊，登入，並收藏喜歡的餐廳
+
 查看所有餐廳
+
 瀏覽餐廳的詳細資訊
+
 連結餐廳的地址到 Google 地圖
+
 搜尋特定餐廳
+
 新增餐廳
+
 編輯餐廳
+
 刪除餐廳
 
 
